@@ -28,7 +28,16 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     <h3>Recent Submits</h3>
  
     <div class="cards">
-        <a href="journals.php" class="card">Manage Journals</a>
+        <div class="card menu">
+    <span id="manageJournalBtn">Manage Journals</span>
+
+    <div class="submenu" id="journalMenu">
+        <a href="add_journal.php">Add Journal</a>
+        <a href="delete_journal.php">Delete Journal</a>
+    </div>
+</div>
+
+        <!-- <a href="journals.php" class="card">Manage Journals</a> -->
         <a href="papers.php" class="card">View Papers</a>
         <a href="reviewers.php" class="card">Assign Reviewers</a>
         <a href="/Research_Project/Management/Auth/MVC/php/logout.php" class="card logout">Logout</a>

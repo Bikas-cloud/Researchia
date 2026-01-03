@@ -9,4 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+  const btn = document.getElementById("manageJournalBtn");
+  const menu = document.getElementById("journalMenu");
+
+  if (btn && menu) {
+    btn.addEventListener("click", function () {
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    });
+  }
 });

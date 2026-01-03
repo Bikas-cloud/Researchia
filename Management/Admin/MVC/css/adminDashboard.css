@@ -107,6 +107,30 @@ h3 {
   text-decoration: none;
   border-radius: 6px;
 }
+.menu {
+  cursor: pointer;
+}
+
+.submenu {
+  margin-top: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.submenu a {
+  padding: 10px;
+  background: #f1f2f7;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.submenu a:hover {
+  background: #28ad0a;
+  color: #fff;
+}
 
 @media (max-width: 992px) {
   .dashboard {
