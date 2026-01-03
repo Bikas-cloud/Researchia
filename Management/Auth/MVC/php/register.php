@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Register</title>
 
-    <link rel="stylesheet" href="/WT-Fall-25-26/Research%20Project/assets/css/registerStyle.css">
+    <link rel="stylesheet" href="/Research_Project/assets/css/registerStyle.css">
 </head>
 <body>
 
@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </form>
 </section>
-  <script src="/WT-Fall-25-26/Research%20Project/assets/js/registerValidation.js"></script>
+  <script src="/Research_Project/assets/js/registerValidation.js"></script>
 </body>
 </html>
 

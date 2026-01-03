@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <head>
     <meta charset="UTF-8" />
     <title>Login</title>
-  <link rel="stylesheet" href="/WT-Fall-25-26/Research%20Project/assets/css/loginStyle.css">
+  <link rel="stylesheet" href="/Research_Project/assets/css/loginStyle.css">
 
   </head>
   <body>
@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
       </form>
     </section>
-    <script src="/WT-Fall-25-26/Research%20Project/assets/js/loginValidation.js"></script>
+    <script src="/Research_Project/assets/js/loginValidation.js"></script>
 
   </body>
 </html>

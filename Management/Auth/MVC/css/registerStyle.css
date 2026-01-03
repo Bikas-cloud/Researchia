@@ -25,7 +25,7 @@ body::before {
   position: fixed;
   inset: 0;
 
-  background-image: url("/WT-Fall-25-26/Research%20Project/assets/images/bgs.png");
+  background-image: url("/Research_Project/assets/images/bgs.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

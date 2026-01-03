@@ -11,10 +11,22 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-image: url("/WT-Fall-25-26/Research%20Project/assets/images/two.png");
+  background-image: url("/Research_Project/assets/images/two.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  animation: hueAnimate 6s linear infinite;
+ 
+}
+
+/* ANIMATION */
+@keyframes hueAnimate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
 }
 section {
   position: relative;
