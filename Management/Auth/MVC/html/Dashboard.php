@@ -23,8 +23,8 @@
                 <i class="fas fa-microscope"></i> <?php echo $site_name; ?>
             </div>
             <div class="auth-nav">
-                <a href="#">Login</a>
-                <a href="#" class="btn-reg">Register</a>
+                <a href="../php/login.php">Login</a>
+                <a href="../php/register.php" class="btn-reg">Register</a>
             </div>
         </div>
     </header>
