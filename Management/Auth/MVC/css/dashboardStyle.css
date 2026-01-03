@@ -100,6 +100,7 @@ header {
 }
 .hero-visual {
   background-color: #1e293b;
+  background-image: url("../images/pp.png");
   border-radius: 20px;
   height: 350px;
   display: flex;
