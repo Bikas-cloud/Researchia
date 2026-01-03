@@ -1,14 +1,15 @@
 <?php
 session_start();
-require_once "../config/db.php";
+require_once "../../../Auth/MVC/db/db.php";
+
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: index.php");
+    header("Location: /Research_Project/Management/Auth/MVC/php/index.php");
     exit;
 }
 /* Basic admin protection */
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header("Location: ../index.php");
+    header("Location: /Research_Project/Management/Auth/MVC/php/index.php");
     exit;
 }
 ?>
@@ -18,7 +19,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="../assets/css/adminDashboard.css">
+    <link rel="stylesheet" href="../css/adminDashboard.css">
 </head>
 <body>
 
@@ -30,7 +31,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
         <a href="journals.php" class="card">Manage Journals</a>
         <a href="papers.php" class="card">View Papers</a>
         <a href="reviewers.php" class="card">Assign Reviewers</a>
-        <a href="logout.php" class="card logout">Logout</a>
+        <a href="/Research_Project/Management/Auth/MVC/php/logout.php" class="card logout">Logout</a>
     </div>
    <div class="recentSubmit">
 <?php
@@ -49,7 +50,7 @@ while ($journal = $journals->fetch_assoc()) {
 ?>
     <div class="journal">
     <div class="journal-thumb">
-    <img src="../assets/images/ijcs.png" alt="Journal">
+    <img src="../images/ijcs.png" alt="Journal">
     </div>
     <div class="journal-body">
       <h3><?= htmlspecialchars($journal['journal_name']) ?></h3>
@@ -88,6 +89,6 @@ while ($journal = $journals->fetch_assoc()) {
 
 </div>
 
-<script src="../assets/js/adminDashboard.js"></script>
+<script src="../js/adminDashboard.js"></script>
 </body>
 </html>

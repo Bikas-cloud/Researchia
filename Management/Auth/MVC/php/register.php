@@ -1,5 +1,5 @@
 <?php
-require_once "../config/db.php";
+require_once "../db/db.php";
 
 $error = "";
 $success = "";
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Register</title>
 
-    <link rel="stylesheet" href="/Research_Project/assets/css/registerStyle.css">
+    <link rel="stylesheet" href="../css/registerStyle.css">
 </head>
 <body>
 
@@ -102,12 +102,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="register">
             <p>Already have an account?
-                <a href="../login.php">Login</a>
+                <a href="login.php">Login</a>
             </p>
         </div>
     </form>
 </section>
-  <script src="/Research_Project/assets/js/registerValidation.js"></script>
+  <script src="../js/registerValidation.js"></script>
 </body>
 </html>
 

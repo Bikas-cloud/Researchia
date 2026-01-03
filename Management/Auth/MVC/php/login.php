@@ -1,5 +1,5 @@
 <?php
-require_once "config/db.php";
+require_once "../db/db.php";
 
 $error = "";
 
@@ -28,13 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['role'] = $user['role'];
 
                 if($_SESSION['role'] === 'admin'){
-                    header("Location: includes/adminDashboard.php");
+                    header("Location: /Research_Project/Management/Admin/MVC/php/adminDashboard.php");
                 }
                  else if($_SESSION['role'] === 'author'){
-                    header("Location: includes/authorDashboard.php");
+                    header("Location: /Research_Project/Management/Author/MVC/php/authorDashboard.php");
                 }
                 else{
-                    header("Location: includes/reviewerDashboard.php");
+                    header("Location: /Research_Project/Management/Reviewer/MVC/php/reviewerDashboard.php");
                 }
                
                 exit();
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <head>
     <meta charset="UTF-8" />
     <title>Login</title>
-  <link rel="stylesheet" href="/Research_Project/assets/css/loginStyle.css">
+  <link rel="stylesheet" href="../css/loginStyle.css">
 
   </head>
   <body>
@@ -80,17 +80,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="forget">
           <label><input type="checkbox" name="remember" /> Remember Me</label>
-          <a href="includes/forgetPassword.php">Forget Password</a>
+          <a href="forgetPassword.php">Forget Password</a>
         </div>
 
         <button type="submit">Log in</button>
 
         <div class="register">
-          <p>Don't have an account? <a href="includes/register.php">Register</a></p>
+          <p>Don't have an account? <a href="register.php">Register</a></p>
         </div>
       </form>
     </section>
-    <script src="/Research_Project/assets/js/loginValidation.js"></script>
+    <script src="../js/loginValidation.js"></script>
 
   </body>
 </html>

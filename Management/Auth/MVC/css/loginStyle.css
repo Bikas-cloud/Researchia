@@ -5,18 +5,24 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("../images/three.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  animation: hueAnimate 6s linear infinite;
+  z-index: -1;
+}
 body {
   display: flex;
   background-color: red !important;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   min-height: 100vh;
-  background-image: url("/Research_Project/assets/images/two.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  animation: hueAnimate 6s linear infinite;
- 
 }
 
 /* ANIMATION */
@@ -31,10 +37,11 @@ body {
 section {
   position: relative;
   max-width: 400px;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
-  backdrop-filter: blur(100px);
   display: flex;
   justify-content: center;
   align-items: center;
