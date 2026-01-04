@@ -1,4 +1,15 @@
-* {
+<?php
+session_start();
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <style>
+        * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -53,7 +64,7 @@ h3 {
   background-color: transparent;
   backdrop-filter: blur(1000px);
   display: grid;
-  grid-template-columns: repeat(auto-fit, 250px);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   padding: 20px;
 }
@@ -162,3 +173,62 @@ h3 {
 .logout:hover {
   background: #b52a37;
 }
+
+    </style>
+</head>
+<body>
+
+<div class="dashboard">
+    <h1>Admin Dashboard</h1>
+    <h3>Recent Submits</h3>
+ 
+    <div class="cards">
+        <div class="card menu">
+    <span id="manageJournalBtn">Manage Journals</span>
+
+    <div class="submenu" id="journalMenu">
+        <a href="add_journal.php">Add Journal</a>
+        <a href="delete_journal.php">Delete Journal</a>
+    </div>
+</div>
+
+        <!-- <a href="journals.php" class="card">Manage Journals</a> -->
+        <a href="papers.php" class="card">View Papers</a>
+        <a href="reviewers.php" class="card">Assign Reviewers</a>
+        <a href="/Research_Project/Management/Auth/MVC/php/logout.php" class="card logout">Logout</a>
+    </div>
+   <div class="recentSubmit">
+
+    <div class="journal">
+    
+    
+    </div>
+
+
+    
+  
+        <div class="journal">
+            
+        </div>
+        <div class="journal">
+            
+        </div>
+        <div class="journal">
+            
+        </div>
+        <div class="journal">
+            
+        </div>
+        <div class="journal">
+            
+        </div>
+        <div class="journal">
+            
+        </div>
+
+
+</div>
+
+<script src="../js/adminDashboard.js"></script>
+</body>
+</html>
