@@ -1,0 +1,93 @@
+/* Reset (safe & minimal) */
+* {
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Page background */
+body {
+  background: #303f4f;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container */
+.dashboard {
+  width: 100%;
+  max-width: 450px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Title */
+.dashboard h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #303f4f;
+}
+
+/* Message */
+.dashboard p {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+/* Form labels */
+label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus {
+  border-color: #28ad0a;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 12px;
+  background: #28ad0a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #1f8a08;
+}
+
+/* Back link */
+.dashboard a {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #007bff;
+  font-size: 0.9rem;
+}
+
+.dashboard a:hover {
+  text-decoration: underline;
+}
