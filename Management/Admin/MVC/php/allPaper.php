@@ -1,3 +1,17 @@
+<?php
+session_start();
+require_once "../../../Auth/MVC/db/db.php";
+require_once "../db/paperDb.php";
+
+/* Admin protection */
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+    header("Location: /Research_Project/Management/Auth/MVC/php/index.php");
+    exit;
+}
+
+$journal_id = $_GET['journal_id'] ?? null;
+$papers = getAllPapers($conn, $journal_id);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
