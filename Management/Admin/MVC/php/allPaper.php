@@ -68,7 +68,7 @@ $papers = getAllPapers($conn, $journal_id);
             <span class="reviewer-cell">
                 <?php if ($row['reviewer_id']): ?>
                     <strong><?= htmlspecialchars($row['reviewer_name']) ?></strong>
-                    <a href="../../../Auth/MVC/php/Profile.php?user_id=<?= (int)$row['reviewer_id'] ?>"
+                    <a href="../../../Auth/MVC/php/Profile.php?id=<?= (int)$row['reviewer_id'] ?>"
                        class="btn reviewer-btn">Reviewer Profile</a>
                 <?php else: ?>
                     <span style="color:#999;">Not Assigned</span>
