@@ -33,6 +33,13 @@ function getAllPapers($conn, $journal_id = null)
         LEFT JOIN reviewers r ON ra.reviewer_id = r.reviewer_id
     ";
 
+    if ($journal_id) {
+        $sql .= " WHERE p.journal_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $journal_id);
+        $stmt->execute();
+        return $stmt->get_result();
+    }
 
     return $conn->query($sql);
 }
