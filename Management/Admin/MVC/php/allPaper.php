@@ -36,7 +36,20 @@
 
             <span><?= date("d M Y", strtotime($row['submission_date'])) ?></span>
 
-         
+            <!-- ACTION -->
+            <span class="action-cell">
+                <?php if (!empty($row['file_path'])): ?>
+                    <a href="../../Author/MVC/uploads/papers/<?= urlencode(basename($row['file_path'])) ?>"
+                       target="_blank"
+                       class="btn view-btn">View Full Paper</a>
+                <?php endif; ?>
+
+                <?php if (!$row['reviewer_id']): ?>
+                    <a href="assignReviewer.php?paper_id=<?= (int)$row['paper_id'] ?>"
+                       class="btn assign-btn">Assign Reviewer</a>
+                <?php endif; ?>
+            </span>
+
         
         </div>
         <?php endwhile; ?>
