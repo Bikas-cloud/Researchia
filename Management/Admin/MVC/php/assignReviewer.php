@@ -20,7 +20,25 @@
         <div class="message"><?= htmlspecialchars($message) ?></div>
     <?php endif; ?>
 
-  
+    <form method="post">
+
+        <label>Select Reviewer</label>
+        <select name="reviewer_id" required>
+            <option value="">-- Choose Reviewer --</option>
+            <?php while ($r = $reviewers->fetch_assoc()): ?>
+                <option value="<?= (int)$r['user_id'] ?>">
+                    <?= htmlspecialchars($r['name']) ?>
+                    (<?= htmlspecialchars($r['research_interest'] ?? 'General') ?>)
+                </option>
+            <?php endwhile; ?>
+        </select>
+
+        <label>Deadline</label>
+        <input type="date" name="deadline" required>
+
+        <button type="submit">Assign Reviewer</button>
+    </form>
+
     <a href="allPaper.php" class="back">⬅ Back to Papers</a>
 </div>
 
