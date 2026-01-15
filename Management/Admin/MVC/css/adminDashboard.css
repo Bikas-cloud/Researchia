@@ -53,13 +53,13 @@ h3 {
   background-color: transparent;
   backdrop-filter: blur(1000px);
   display: grid;
-  grid-template-columns: repeat(auto-fit, 250px);
+  grid-template-columns: repeat(auto-fit, 300px);
   gap: 20px;
   padding: 20px;
 }
 .journal {
   background-color: #ffffff;
-  min-height: 250px; /* NOW it will work */
+  min-height: 280px; /* NOW it will work */
   border-radius: 12px;
   overflow: hidden; /* IMPORTANT for image */
   display: flex;
