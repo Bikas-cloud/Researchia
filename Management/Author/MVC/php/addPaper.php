@@ -17,6 +17,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $abstract = trim($_POST['abstract']);
     $journal_id = intval($_POST['journal_id']);
 
+    if (empty($title) || empty($abstract) || empty($journal_id)) {
+        $message = "All fields are required.";
+    } elseif (!isset($_FILES['paper_file'])) {
+        $message = "Paper file is required.";
+    } else {
+
+        // Upload directory
+        $uploadDir = "../uploads/papers/";
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0777, true);
+        }
+
+        $fileName = time() . "_" . basename($_FILES['paper_file']['name']);
+        $filePath = $uploadDir . $fileName;
+
+        if (move_uploaded_file($_FILES['paper_file']['tmp_name'], $filePath)) {
+
+            // Insert paper
+            $stmt = $conn->prepare(
+                "INSERT INTO papers (title, abstract, submission_date, user_id, journal_id, status)
+                 VALUES (?, ?, NOW(), ?, ?, 'submitted')"
+            );
+            $stmt->bind_param("ssii", $title, $abstract, $user_id, $journal_id);
+
+            if ($stmt->execute()) {
+                $paper_id = $stmt->insert_id;
+
+                // Insert version
+                $vstmt = $conn->prepare(
+                    "INSERT INTO paper_versions (paper_id, file_path, version_number, uploaded_at)
+                     VALUES (?, ?, 1, NOW())"
+                );
+                $vstmt->bind_param("is", $paper_id, $fileName);
+                $vstmt->execute();
+
+                $message = "Paper submitted successfully!";
+            } else {
+                $message = "Database error!";
+            }
+        } else {
+            $message = "File upload failed!";
+        }
+    }
 }
 
 // Fetch journals
