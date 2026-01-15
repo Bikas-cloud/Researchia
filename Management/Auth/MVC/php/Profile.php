@@ -43,7 +43,24 @@
 
     <hr>
 
+    <!-- BIO -->
+    <h3>Bio</h3>
+    <p id="bioText"><?= nl2br(htmlspecialchars($user['bio'])) ?></p>
+    <button class="edit-btn" onclick="editField('bio')">Edit</button>
 
+    <hr>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div><strong><?= $submitted ?></strong><span>Submitted</span></div>
+        <div><strong><?= $accepted ?></strong><span>Accepted</span></div>
+        <div><strong><?= $review ?></strong><span>Under Review</span></div>
+    </div>
+
+    <!-- DARK MODE -->
+    <button id="themeToggle" class="dark-btn">
+        <i class="fa fa-moon"></i> Dark Mode
+    </button>
 
 </div>
 
