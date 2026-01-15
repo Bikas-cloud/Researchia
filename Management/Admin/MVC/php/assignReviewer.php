@@ -34,7 +34,48 @@ $reviewers = $conn->query("
     ORDER BY name ASC
 ");
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+    $reviewer_id = (int)$_POST['reviewer_id'];
+    $deadline = $_POST['deadline'];
+
+    if (!$reviewer_id || !$deadline) {
+        $message = "All required fields must be filled.";
+    } else {
+
+        /* Prevent duplicate assignment */
+        $check = $conn->prepare("
+            SELECT 1 FROM reviewer_assignment
+            WHERE paper_id = ? AND reviewer_id = ?
+        ");
+        $check->bind_param("ii", $paper_id, $reviewer_id);
+        $check->execute();
+
+        if ($check->get_result()->num_rows > 0) {
+            $message = "This reviewer is already assigned to this paper.";
+        } else {
+
+            /* Assign reviewer */
+            $stmt = $conn->prepare("
+                INSERT INTO reviewer_assignment (paper_id, reviewer_id, deadline)
+                VALUES (?, ?, ?)
+            ");
+            $stmt->bind_param("iis", $paper_id, $reviewer_id, $deadline);
+            $stmt->execute();
+
+            /* Update paper status */
+            $update = $conn->prepare("
+                UPDATE papers 
+                SET status = 'under_review'
+                WHERE paper_id = ?
+            ");
+            $update->bind_param("i", $paper_id);
+            $update->execute();
+
+            $message = "Reviewer assigned successfully!";
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
