@@ -1,3 +1,34 @@
+<?php
+session_start();
+require_once "../db/db.php";
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: index.php");
+    exit;
+}
+
+// Default: logged-in user
+$user_id = $_SESSION['user_id'];
+
+// If admin & user_id provided → view that profile
+if ($_SESSION['role'] === 'admin' && isset($_GET['user_id'])) {
+    $user_id = (int) $_GET['user_id'];
+}
+
+
+$stmt = $conn->prepare("
+    SELECT name,email,affiliation,bio,research_interests,profile_pic
+    FROM Users WHERE user_id=?
+");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$user = $stmt->get_result()->fetch_assoc();
+
+/* Stats */
+$submitted = $conn->query("SELECT COUNT(*) FROM Papers WHERE user_id=$user_id")->fetch_row()[0];
+$accepted  = $conn->query("SELECT COUNT(*) FROM Papers WHERE user_id=$user_id AND status='accepted'")->fetch_row()[0];
+$review    = $conn->query("SELECT COUNT(*) FROM Papers WHERE user_id=$user_id AND status='under_review'")->fetch_row()[0];
+?>
 
 <!DOCTYPE html>
 <html>
