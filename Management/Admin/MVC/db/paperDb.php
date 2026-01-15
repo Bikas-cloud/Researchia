@@ -30,7 +30,7 @@ function getAllPapers($conn, $journal_id = null)
             )
 
         LEFT JOIN reviewer_assignment ra ON p.paper_id = ra.paper_id
-        LEFT JOIN reviewers r ON ra.reviewer_id = r.reviewer_id
+        LEFT JOIN users r ON ra.reviewer_id = r.user_id
     ";
 
     if ($journal_id) {
