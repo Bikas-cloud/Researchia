@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* CARD */
+.profile-container {
+    background: white;
+    width: 360px;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+/* PROFILE PIC */
+.profile-pic {
+    position: relative;
+    width: 140px;
+    margin: auto;
+}
+.profile-pic img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.camera {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #7a8466;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+}
+
+/* TEXT */
+.email { color: gray; margin-bottom: 8px; }
+
+.editable button,
+.edit-btn {
+    margin-top: 6px;
+    background: none;
+    border: none;
+    color: #7a8466;
+    cursor: pointer;
+}
+
+/* TAGS */
+.tags span {
+    display: inline-block;
+    background: #7a8466;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin: 4px;
+    font-size: 13px;
+}
+
+/* STATS */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+.stats div span {
+    display: block;
+    font-size: 13px;
+    color: gray;
+}
+
+/* DARK MODE */
+.dark-btn {
+    width: 100%;
+    padding: 12px;
+    background: #7a8466;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* DARK MODE ACTIVE */
+body.dark {
+    background: #121212;
+}
+body.dark .profile-container {
+    background: #1e1e1e;
+    color: white;
+}
