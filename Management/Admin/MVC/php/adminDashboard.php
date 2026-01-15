@@ -36,12 +36,12 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 
             <div class="submenu" id="journalMenu">
                 <a href="add_journal.php">Add Journal</a>
-                <a href="delete_journal.php">Delete Journal</a>
+                <a href="../html/deleteJournal.php">Delete Journal</a>
             </div>
         </div>
 
-        <a href="papers.php" class="card">View Papers</a>
-        <a href="reviewers.php" class="card">Assign Reviewers</a>
+        <a href="allPaper.php" class="card">View Papers</a>
+        <a href="addReviewer.php" class="card">Add Reviewers</a>
         <a href="/Research_Project/Management/Auth/MVC/php/logout.php" class="card logout">Logout</a>
     </div>
 
@@ -70,7 +70,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                     <p>Impact Factor: <?= htmlspecialchars($journal['impact_factor']) ?></p>
                     <p>Total Papers: <?= $totalPapers ?></p>
 
-                    <a href="papers.php?journal_id=<?= (int)$journal['journal_id'] ?>">
+                    <a href="allPaper.php?journal_id=<?= (int)$journal['journal_id'] ?>">
                         View Papers
                     </a>
                 </div>
