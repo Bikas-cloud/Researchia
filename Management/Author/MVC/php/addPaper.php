@@ -1,3 +1,27 @@
+<?php
+session_start();
+require_once "../../../Auth/MVC/db/db.php";
+
+// Auth check
+if (!isset($_SESSION['user_id'])) {
+    header("Location: /Research_Project/Management/Auth/MVC/php/index.php");
+    exit;
+}
+
+$user_id = $_SESSION['user_id'];
+$message = "";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $title = trim($_POST['title']);
+    $abstract = trim($_POST['abstract']);
+    $journal_id = intval($_POST['journal_id']);
+
+}
+
+// Fetch journals
+$journals = $conn->query("SELECT journal_id, journal_name FROM journals");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
