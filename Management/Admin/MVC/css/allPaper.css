@@ -130,4 +130,24 @@ h1 {
   background: #59339d;
 }
 
+@media (max-width: 768px) {
+  .table-head {
+    display: none;
+  }
 
+  .table-row {
+    grid-template-columns: 1fr;
+    padding: 15px;
+    border-bottom: 10px solid #f4f6f9;
+  }
+
+  .table-row span {
+    word-break: break-word;
+  }
+
+  .action-cell,
+  .reviewer-cell {
+    flex-direction: row;
+    gap: 10px;
+  }
+}
