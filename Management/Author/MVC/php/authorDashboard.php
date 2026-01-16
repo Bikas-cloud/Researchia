@@ -16,6 +16,21 @@
         
         <a href="/Research_Project/Management/Auth/MVC/php/logout.php" class="card logout">Logout</a>
     </div>
+    <div class="recentSubmit">
+        <?php
+        $journals = $conn->query("SELECT * FROM journals");
+
+        while ($journal = $journals->fetch_assoc()) {
+
+            // Count papers for this journal
+            $stmt = $conn->prepare(
+                "SELECT COUNT(*) AS total FROM papers WHERE journal_id = ?"
+            );
+            $stmt->bind_param("i", $journal['journal_id']);
+            $stmt->execute();
+            $countResult = $stmt->get_result()->fetch_assoc();
+            $totalPapers = $countResult['total'];
+        ?>
 
 
 </body>
