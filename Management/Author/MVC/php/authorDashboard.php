@@ -47,6 +47,11 @@
                     </a>
                 </div>
             </div>
+        <?php
+            $stmt->close();
+        }
+        ?>
+        </div>
 </div>
 
 <script src="../js/adminDashboard.js"></script>
