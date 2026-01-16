@@ -1,6 +1,25 @@
 
 
-
+// Fetch user's papers with latest version
+$stmt = $conn->prepare("
+    SELECT 
+        p.paper_id,
+        p.title,
+        p.submission_date,
+        p.status,
+        j.journal_name,
+        pv.file_path
+    FROM papers p
+    JOIN journals j ON p.journal_id = j.journal_id
+    JOIN paper_versions pv ON pv.paper_id = p.paper_id
+    WHERE p.user_id = ?
+      AND pv.version_number = (
+          SELECT MAX(version_number)
+          FROM paper_versions
+          WHERE paper_id = p.paper_id
+      )
+    ORDER BY p.submission_date DESC
+");
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
