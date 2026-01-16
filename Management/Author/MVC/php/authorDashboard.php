@@ -19,6 +19,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'author') {
         <h1>Welcome to Author Dashboard</h1>
 
         <a href="addPaper.php">Submit paper</a>
+        <a href="addPaper.php">Test paper</a>
          <a href="../../../Auth/MVC/php/Profile.php">View Profile</a>
     </body>
 </html>
