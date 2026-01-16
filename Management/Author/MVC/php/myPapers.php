@@ -1,7 +1,10 @@
 
 
 
-
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +50,6 @@
     <?php endif; ?>
 
     <a href="authorDashboard.php" class="back">⬅ Back to Dashboard</a>
-    
 </div>
 
 </body>
