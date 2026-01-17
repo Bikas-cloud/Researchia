@@ -11,3 +11,23 @@ body {
   min-height: 100vh;
 }
 
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto 1fr;
+  gap: 20px;
+  text-align: center;
+  padding: 40px;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30px;
+  color: #f1f2f7;
+}
+h3 {
+  margin-top: 10px;
+  color: #7fc0de;
+}
+
