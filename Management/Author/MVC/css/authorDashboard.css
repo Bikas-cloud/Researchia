@@ -148,4 +148,16 @@ h3 {
   }
 }
 
+.card:hover {
+  background: #007bff;
+  color: #fff;
+}
 
+.logout {
+  background: #dc3545;
+  color: #fff;
+}
+
+.logout:hover {
+  background: #b52a37;
+}
