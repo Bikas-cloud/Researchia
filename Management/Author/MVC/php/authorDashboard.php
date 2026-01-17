@@ -32,7 +32,23 @@
             $totalPapers = $countResult['total'];
         ?>
 
+        <div class="journal">
+                <div class="journal-thumb">
+                    <img src="../images/ijcs.png" alt="Journal">
+                </div>
+
+                <div class="journal-body">
+                    <h3><?= htmlspecialchars($journal['journal_name']) ?></h3>
+                    <p>Impact Factor: <?= htmlspecialchars($journal['impact_factor']) ?></p>
+                    <p>Total Papers: <?= $totalPapers ?></p>
+
+                    <a href="addPaper.php?journal_id=<?= (int)$journal['journal_id'] ?>">
+                        Submit Papers
+                    </a>
+                </div>
+            </div>
         
+        </div>
 </div>
 
 <script src="../js/adminDashboard.js"></script>
