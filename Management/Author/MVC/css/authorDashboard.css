@@ -48,3 +48,34 @@ h3 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
 }
+.recentSubmit {
+  grid-column: 2 / 5;
+  background-color: transparent;
+  backdrop-filter: blur(1000px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  gap: 20px;
+  padding: 20px;
+}
+.journal {
+  background-color: #ffffff;
+  min-height: 280px; /* NOW it will work */
+  border-radius: 12px;
+  overflow: hidden; /* IMPORTANT for image */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+.journal-thumb {
+  height: 140px; /* Thumbnail height */
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+.journal-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* LIKE YOUTUBE */
+}
+
