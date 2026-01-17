@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Insert paper
             $stmt = $conn->prepare(
-                "INSERT INTO papers (title, abstract, submission_date, user_id, journal_id, status)
+                "INSERT INTO papers (title, abstract, submission_date, user_id, journal_id, `status`)
                  VALUES (?, ?, NOW(), ?, ?, 'submitted')"
             );
             $stmt->bind_param("ssii", $title, $abstract, $user_id, $journal_id);
