@@ -47,7 +47,10 @@
                     </a>
                 </div>
             </div>
-        
+        <?php
+            $stmt->close();
+        }
+        ?>
         </div>
 </div>
 
