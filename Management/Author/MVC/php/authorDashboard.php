@@ -1,3 +1,13 @@
+<?php
+session_start();
+require_once "../../../Auth/MVC/db/db.php";
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: /Research_Project/Management/Auth/MVC/php/login.php");
+    exit;
+}
+
 
 <!DOCTYPE html>
 <html lang="en">
