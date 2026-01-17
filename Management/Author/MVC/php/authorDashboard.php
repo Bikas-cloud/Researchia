@@ -8,7 +8,12 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-
+// Basic author protection
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'author') {
+    header("Location: /Research_Project/Management/Auth/MVC/php/login.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
