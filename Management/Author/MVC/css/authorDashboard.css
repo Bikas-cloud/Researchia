@@ -79,3 +79,50 @@ h3 {
   object-fit: cover; /* LIKE YOUTUBE */
 }
 
+.journal-body {
+  padding: 14px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.journal-body h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.journal-body p {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.journal-body a {
+  margin-top: auto;
+  padding: 8px;
+  background: #28ad0a;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+}
+.menu {
+  cursor: pointer;
+}
+
+.submenu {
+  margin-top: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.submenu a {
+  padding: 10px;
+  background: #f1f2f7;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.9rem;
+}
+
