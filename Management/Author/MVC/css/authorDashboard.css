@@ -30,4 +30,21 @@ h3 {
   margin-top: 10px;
   color: #7fc0de;
 }
+.cards {
+  grid-column: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 50vh;
+}
 
+.card {
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
