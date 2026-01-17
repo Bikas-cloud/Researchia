@@ -126,3 +126,26 @@ h3 {
   font-size: 0.9rem;
 }
 
+.submenu a:hover {
+  background: #28ad0a;
+  color: #fff;
+}
+
+@media (max-width: 992px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .cards {
+    grid-column: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .recentSubmit {
+    grid-column: 1;
+  }
+}
+
+
