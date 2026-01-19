@@ -6,7 +6,22 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'reviewer') {
     header("Location: /Research_Project/Management/Auth/MVC/php/index.php");
     exit;
 }
+
 $user_id = $_SESSION['user_id'];
+
+$stmt = $conn->prepare("
+    SELECT 
+        p.paper_id,
+        p.title,
+        j.journal_name,
+        ra.deadline,
+        p.status
+    FROM reviewer_assignment ra
+    JOIN papers p ON ra.paper_id = p.paper_id
+    JOIN journals j ON p.journal_id = j.journal_id
+    WHERE ra.reviewer_id = ?
+    ORDER BY ra.deadline ASC
+");
 
 
 
