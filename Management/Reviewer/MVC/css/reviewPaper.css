@@ -56,4 +56,14 @@ input, textarea, select {
   border: 1px solid #ccc;
 }
 
+button {
+  margin-top: 20px;
+  padding: 12px;
+  width: 100%;
+  background: #28ad0a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
