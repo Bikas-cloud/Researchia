@@ -16,6 +16,13 @@
         <p><strong>Title:</strong> <?= htmlspecialchars($paper['title']) ?></p>
         <p><strong>Journal:</strong> <?= htmlspecialchars($paper['journal_name']) ?></p>
         <p><strong>Status:</strong> <?= htmlspecialchars($paper['status']) ?></p>
+
+        <?php if (!empty($paper['file_path'])): ?>
+            <a class="download"
+             href="../../../Author/MVC/uploads/papers/<?=htmlspecialchars($paper['file_path'])?>"
+             target="_blank">
+             Download Latest PDF
+            </a>
     </div>
 
     
