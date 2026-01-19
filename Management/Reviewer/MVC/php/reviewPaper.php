@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../css/reviewPaper.css">
 </head>
 <body>
+<div class="review-container">
     <h2>Review Paper</h2>
 
     <?php if ($message): ?>
@@ -23,9 +24,24 @@
              target="_blank">
              Download Latest PDF
             </a>
+
+        <?php else: ?>
+            <p style="color:red;">No file uploaded.</p>
+        <?php endif; ?>
     </div>
 
-    
+    <form method="post">
+
+        <label>Score (1–10)</label>
+        <input type="number" name="score" min="1" max="10" required>
+
+        <label>Review Comment</label>
+        <textarea name="comment" rows="6" required></textarea>
+    </form>
+
+    <a href="reviewerDashboard.php" class="back">⬅ Back to Dashboard</a>
+
+</div>
 
 </body>
 </html>
