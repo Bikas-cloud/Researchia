@@ -1,3 +1,41 @@
+<?php
+session_start();
+require_once "../../../Auth/MVC/db/db.php";
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'author') {
+    header("Location: /Research_Project/Management/Auth/MVC/php/login.php");
+    exit;
+}
+
+$user_id = $_SESSION['user_id'];
+
+$stmt = $conn->prepare("
+    SELECT 
+        p.paper_id,
+        p.title,
+        p.status,
+        j.journal_name,
+        pv.file_path,
+        r.score,
+        r.comment,
+        r.review_date,
+        u.name AS reviewer_name
+    FROM papers p
+    JOIN journals j ON p.journal_id = j.journal_id
+    LEFT JOIN paper_versions pv ON pv.paper_id = p.paper_id
+        AND pv.version_number = (
+            SELECT MAX(version_number)
+            FROM paper_versions
+            WHERE paper_id = p.paper_id
+        )
+    LEFT JOIN reviews r ON r.paper_id = p.paper_id
+    LEFT JOIN users u ON u.user_id = r.reviewer_id
+    WHERE p.user_id = ?
+    ORDER BY p.submission_date DESC
+");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
