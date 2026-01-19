@@ -37,6 +37,16 @@
 
         <label>Review Comment</label>
         <textarea name="comment" rows="6" required></textarea>
+
+        <label>Decision</label>
+        <select name="decision" required>
+            <option value="">-- Select --</option>
+            <option value="Accepted">Accept</option>
+            <option value="Revised">Revision Required</option>
+            <option value="Rejected">Reject</option>
+        </select>
+
+        <button type="submit">Submit Review</button>
     </form>
 
     <a href="reviewerDashboard.php" class="back">⬅ Back to Dashboard</a>
