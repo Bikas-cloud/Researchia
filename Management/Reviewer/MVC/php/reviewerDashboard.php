@@ -20,6 +20,7 @@
         <a href="/Research_Project/Management/Auth/MVC/php/logout.php" class="card logout">Logout</a>
     </div>
 
+
     <div class="recentSubmit">
         <?php if ($result->num_rows === 0): ?>
             <p>No papers assigned yet.</p>
@@ -28,6 +29,10 @@
                 <div class="journal">
                     <div class="journal-body">
                         <h3><?= htmlspecialchars($row['title']) ?></h3>
+                        <p><strong>Journal:</strong> <?= htmlspecialchars($row['journal_name']) ?></p>
+                        <p><strong>Deadline:</strong> <?= date("d M Y", strtotime($row['deadline'])) ?></p>
+                        <p><strong>Status:</strong> <?= htmlspecialchars($row['status']) ?></p>
+
                         <a href="reviewPaper.php?paper_id=<?= $row['paper_id'] ?>">
                             Review Paper
                         </a>
