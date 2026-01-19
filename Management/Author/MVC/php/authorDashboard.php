@@ -2,6 +2,10 @@
 session_start();
 require_once "../../../Auth/MVC/db/db.php";
 
+$themeClass = "";
+if (isset($_COOKIE['theme']) && $_COOKIE['theme'] === 'dark') {
+    $themeClass = "dark";
+}
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: /Research_Project/Management/Auth/MVC/php/login.php");
@@ -22,6 +26,9 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'author') {
     <link rel="stylesheet" href="../css/authorDashboard.css">
 </head>
 <body>
+
+class="<?= $themeClass ?>"
+
 <div class="dashboard">
     <h1>Author Dashboard</h1>
     <div class="cards">
