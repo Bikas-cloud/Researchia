@@ -10,3 +10,11 @@ body {
   min-height: 100vh;
 }
 
+.review-container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+}
+
