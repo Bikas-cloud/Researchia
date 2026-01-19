@@ -10,6 +10,13 @@ if (!isset($_SESSION['user_id'])) {
 
 $reviewer_id = $_SESSION['user_id'];
 
+if (!isset($_GET['paper_id'])) {
+    die("Invalid request");
+}
+
+$paper_id = intval($_GET['paper_id']);
+$message = "";
+
 
 ?>
 
