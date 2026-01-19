@@ -87,7 +87,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $message = "Failed to update paper status.";
             }
 
-        } 
+        } else {
+            $message = "Failed to submit review.";
+        }
     }
 }
 ?>
