@@ -99,5 +99,7 @@ h1 {
     justify-content: center;
   }
 
-  
+  .recentSubmit {
+    grid-column: 1;
+  }
 }
