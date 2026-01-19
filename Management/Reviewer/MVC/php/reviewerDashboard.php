@@ -3,6 +3,11 @@ session_start();
 
 require_once "../../../Auth/MVC/db/db.php"; 
 
+$themeClass = "";
+if (isset($_COOKIE['theme']) && $_COOKIE['theme'] === 'dark') {
+    $themeClass = "dark";
+}
+
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'reviewer') {
     header("Location: /Research_Project/Management/Auth/MVC/php/index.php");
     exit;
@@ -37,7 +42,7 @@ $result = $stmt->get_result();
     <title>Reviewer Dashboard</title>
     <link rel="stylesheet" href="../css/reviewerDashboard.css">
 </head>
-<body>
+<body class="<?= $themeClass ?>" >
 
 <div class="dashboard">
 <h1>Reviewer Dashboard</h1>
@@ -47,7 +52,7 @@ $result = $stmt->get_result();
         
         <a href="/Research_Project/Management/Auth/MVC/php/logout.php" class="card logout">Logout</a>
     </div>
-    
+
     <div class="recentSubmit">
         <?php if ($result->num_rows === 0): ?>
             <p>No papers assigned yet.</p>
