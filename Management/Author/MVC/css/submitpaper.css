@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    background: hsla(139, 78%, 16%, 0.301);
+    margin: 0;
+    padding: 0;
+}
+
+.feedback-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+
