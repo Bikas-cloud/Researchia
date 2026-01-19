@@ -73,7 +73,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ");
         $rstmt->bind_param("iiis", $paper_id, $reviewer_id, $score, $comment);
 
+        if ($rstmt->execute()) {
 
+            $ustmt = $conn->prepare("
+                UPDATE papers SET status = ? WHERE paper_id = ?
+            ");
+            $ustmt->bind_param("si", $decision, $paper_id);
+
+            if ($ustmt->execute()) {
+                $message = "Review submitted successfully!";
+                $paper = fetchPaper($conn, $paper_id);
+            } else {
+                $message = "Failed to update paper status.";
+            }
+
+        } 
     }
 }
 ?>
