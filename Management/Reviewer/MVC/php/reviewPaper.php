@@ -36,7 +36,9 @@ function fetchPaper($conn, $paper_id) {
             )
         WHERE p.paper_id = ?
     ");
-    
+    $stmt->bind_param("i", $paper_id);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_assoc();
 }
 
 ?>
