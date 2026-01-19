@@ -1,0 +1,42 @@
+body {
+  background: hsla(139, 78%, 16%, 0.3);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.paper-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background: #f1f2f7;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 20px;
+}

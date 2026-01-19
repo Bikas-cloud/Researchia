@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif "Franklin Gothic Medium",
+    "Arial Narrow", Arial, sans-serif;
+}
+
+body {
+  background: hsla(139, 78%, 16%, 0.301);
+  min-height: 100vh;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto 1fr;
+  gap: 20px;
+  text-align: center;
+  padding: 40px;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30px;
+  color: #f1f2f7;
+}
+
+
+.cards {
+  grid-column: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 50vh;
+}
+
+.card {
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+.recentSubmit {
+  grid-column: 2 / 5;
+  background-color: transparent;
+  backdrop-filter: blur(1000px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  gap: 20px;
+  padding: 20px;
+}
+.journal {
+  background-color: #ffffff;
+  min-height: 280px; /* NOW it will work */
+  border-radius: 12px;
+  overflow: hidden; /* IMPORTANT for image */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+.journal-thumb {
+  height: 140px; /* Thumbnail height */
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+.journal-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* LIKE YOUTUBE */
+}
+
+.journal-body {
+  padding: 14px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.journal-body h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.journal-body p {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.journal-body a {
+  margin-top: auto;
+  padding: 8px;
+  background: #28ad0a;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+}
+.menu {
+  cursor: pointer;
+}
+
+.submenu {
+  margin-top: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.submenu a {
+  padding: 10px;
+  background: #f1f2f7;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.submenu a:hover {
+  background: #28ad0a;
+  color: #fff;
+}
+
+@media (max-width: 992px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .cards {
+    grid-column: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .recentSubmit {
+    grid-column: 1;
+  }
+}
+
+.card:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+.logout {
+  background: #dc3545;
+  color: #fff;
+}
+
+.logout:hover {
+  background: #b52a37;
+}

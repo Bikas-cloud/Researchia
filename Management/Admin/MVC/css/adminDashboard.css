@@ -7,7 +7,7 @@
 }
 
 body {
-  background: #303f4f;
+  background:hsla(139, 78%, 16%, 0.301);
   min-height: 100vh;
 }
 
@@ -40,12 +40,18 @@ body {
   color: #e0eff5;
 }
 
+h3 {
+  margin-top: 10px;
+  color: #f1f2f7;
+=======
+
 .admin-avatar {
   width: 42px;
   height: 42px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #007bff;
+
 }
 
 .cards {
