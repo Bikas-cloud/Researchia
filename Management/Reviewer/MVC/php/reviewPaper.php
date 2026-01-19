@@ -41,6 +41,12 @@ function fetchPaper($conn, $paper_id) {
     return $stmt->get_result()->fetch_assoc();
 }
 
+$paper = fetchPaper($conn, $paper_id);
+if (!$paper) {
+    die("Paper not found");
+}
+
+
 ?>
 
 <!DOCTYPE html>
