@@ -22,7 +22,9 @@ $stmt = $conn->prepare("
     WHERE ra.reviewer_id = ?
     ORDER BY ra.deadline ASC
 ");
-
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
 
 
 ?>
