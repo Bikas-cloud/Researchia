@@ -10,3 +10,16 @@ body {
   min-height: 100vh;
 }
 
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 40px;
+}
+
+h1 {
+  grid-column: 1 / -1;
+  color: #f1f2f7;
+  margin-bottom: 20px;
+}
+
