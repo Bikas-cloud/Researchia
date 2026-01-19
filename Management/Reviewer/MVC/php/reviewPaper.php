@@ -1,3 +1,18 @@
+<?php
+session_start();
+require_once "../../../Auth/MVC/db/db.php";
+
+/* ---------- AUTH CHECK ---------- */
+if (!isset($_SESSION['user_id'])) {
+    header("Location: /Research_Project/Management/Auth/MVC/php/index.php");
+    exit;
+}
+
+$reviewer_id = $_SESSION['user_id'];
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +21,9 @@
     <link rel="stylesheet" href="../css/reviewPaper.css">
 </head>
 <body>
+
 <div class="review-container">
+
     <h2>Review Paper</h2>
 
     <?php if ($message): ?>
