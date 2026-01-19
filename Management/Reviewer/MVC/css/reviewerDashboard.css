@@ -62,3 +62,31 @@ h1 {
   gap: 20px;
 }
 
+.journal {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.journal-body h3 {
+  margin-bottom: 10px;
+}
+
+.journal-body p {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.journal-body a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px;
+  background: #28ad0a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  text-align: center;
+}
+
+
