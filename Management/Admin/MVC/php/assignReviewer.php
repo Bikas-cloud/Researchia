@@ -76,6 +76,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+$stmt = $conn->prepare("SELECT name, profile_pic FROM users WHERE user_id = ?");
+$stmt->bind_param("i", $_SESSION['user_id']);
+$stmt->execute();
+$admin = $stmt->get_result()->fetch_assoc();
+$stmt->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,7 +90,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../css/assignReviewer.css">
 </head>
 <body>
+<div class="dashboard">
+    <div class="dashboard-header">
+       <h1>Assign</h1>
+       <div class="admin-info">
+        <span class="admin-name">
+            <?= htmlspecialchars($admin['name']) ?>
+        </span>
 
+        <img src="../../../Auth/MVC/uploads/profile/<?= htmlspecialchars($admin['profile_pic'] ?: 'default.png') ?>"
+             class="admin-avatar"
+             alt="Profile">
+        </div>
+    </div>
 <div class="assign-container">
     <h1>Assign Reviewer</h1>
 
