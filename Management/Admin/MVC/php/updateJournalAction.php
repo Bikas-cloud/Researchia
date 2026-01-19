@@ -2,6 +2,9 @@
 session_start();
 require_once "../../../Auth/MVC/db/db.php";
 
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+    exit("Unauthorized");
+}
 
 $journal_id = (int)$_POST['journal_id'];
 $name = trim($_POST['journal_name']);
