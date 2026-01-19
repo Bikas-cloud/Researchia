@@ -30,3 +30,14 @@ h1 {
   gap: 20px;
 }
 
+.card {
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  transition: 0.3s;
+}
+
