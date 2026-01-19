@@ -17,6 +17,27 @@ if (!isset($_GET['paper_id'])) {
 $paper_id = intval($_GET['paper_id']);
 $message = "";
 
+function fetchPaper($conn, $paper_id) {
+    $stmt = $conn->prepare("
+        SELECT 
+            p.paper_id,
+            p.title,
+            p.status,
+            j.journal_name,
+            pv.file_path
+        FROM papers p
+        JOIN journals j ON p.journal_id = j.journal_id
+        LEFT JOIN paper_versions pv 
+            ON pv.paper_id = p.paper_id
+            AND pv.version_number = (
+                SELECT MAX(version_number)
+                FROM paper_versions
+                WHERE paper_id = p.paper_id
+            )
+        WHERE p.paper_id = ?
+    ");
+    
+}
 
 ?>
 
