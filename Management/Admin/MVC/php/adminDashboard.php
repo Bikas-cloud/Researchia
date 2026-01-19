@@ -62,7 +62,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
         ?>
             <div class="journal">
                 <div class="journal-thumb">
-                    <img src="../images/ijcs.png" alt="Journal">
+                    <img src="../images/journals/<?= htmlspecialchars($journal['image']) ?>" alt="Journal">
                 </div>
 
                 <div class="journal-body">
