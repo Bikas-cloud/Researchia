@@ -41,3 +41,13 @@ h1 {
   transition: 0.3s;
 }
 
+.card:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+.logout {
+  background: #dc3545;
+  color: #fff;
+}
+
