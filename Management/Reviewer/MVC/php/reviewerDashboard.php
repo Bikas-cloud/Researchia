@@ -24,7 +24,7 @@
         <?php if ($result->num_rows === 0): ?>
             <p>No papers assigned yet.</p>
         <?php else: ?>
-           
+            <?php while ($row = $result->fetch_assoc()): ?>
                 <div class="journal">
                     <div class="journal-body">
                         <h3><?= htmlspecialchars($row['title']) ?></h3>
@@ -33,7 +33,7 @@
                         </a>
                     </div>
                 </div>
-            
+            <?php endwhile; ?>
         <?php endif; ?>
     </div>
 
