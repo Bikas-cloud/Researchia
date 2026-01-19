@@ -12,6 +12,12 @@
         <p class="message"><?= htmlspecialchars($message) ?></p>
     <?php endif; ?>
 
+    <div class="paper-info">
+        <p><strong>Title:</strong> <?= htmlspecialchars($paper['title']) ?></p>
+        <p><strong>Journal:</strong> <?= htmlspecialchars($paper['journal_name']) ?></p>
+        <p><strong>Status:</strong> <?= htmlspecialchars($paper['status']) ?></p>
+    </div>
+
     
 
 </body>
