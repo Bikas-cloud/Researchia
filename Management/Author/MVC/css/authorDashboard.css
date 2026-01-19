@@ -26,10 +26,8 @@ h1 {
   margin-bottom: 30px;
   color: #f1f2f7;
 }
-h3 {
-  margin-top: 10px;
-  color: #7fc0de;
-}
+
+
 .cards {
   grid-column: 1 / 2;
   display: flex;
