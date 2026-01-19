@@ -9,11 +9,20 @@
 </head>
 <body>
 
-
+<div class="dashboard">
 
     <h1>Reviewer Dashboard</h1>
 
     
+    <div class="cards">
+        <a href="../../../Auth/MVC/php/profile.php" class="card">Profile</a>
+        
+        <a href="/Research_Project/Management/Auth/MVC/php/logout.php" class="card logout">Logout</a>
+    </div>
+
+    
+
+</div>
 
 </body>
 </html>
