@@ -7,7 +7,7 @@
 }
 
 body {
-  background: #303f4f;
+  background:hsla(139, 78%, 16%, 0.301);
   min-height: 100vh;
 }
 
@@ -28,7 +28,7 @@ h1 {
 }
 h3 {
   margin-top: 10px;
-  color: #7fc0de;
+  color: #f1f2f7;
 }
 .cards {
   grid-column: 1 / 2;
