@@ -1,3 +1,21 @@
+<?php
+session_start();
+require_once "../../../Auth/MVC/db/db.php";
+
+/* Admin protection */
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+    header("Location: /Research_Project/Management/Auth/MVC/php/index.php");
+    exit;
+}
+
+if (!isset($_GET['journal_id'])) {
+    die("Journal ID missing");
+}
+
+$journal_id = (int)$_GET['journal_id'];
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
