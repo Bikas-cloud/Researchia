@@ -47,6 +47,35 @@ if (!$paper) {
 }
 
 
+if ($paper['status'] === 'Submitted') {
+    $conn->query("UPDATE papers SET status = 'Under Review' WHERE paper_id = $paper_id");
+    $paper = fetchPaper($conn, $paper_id);
+}
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $score    = intval($_POST['score']);
+    $comment  = trim($_POST['comment']);
+    $decision = $_POST['decision'];
+
+    $valid_status = ['Accepted', 'Rejected', 'Revised'];
+
+    if (empty($comment) || empty($decision)) {
+        $message = "All fields are required.";
+    } elseif (!in_array($decision, $valid_status)) {
+        $message = "Invalid decision selected.";
+    } else {
+
+        $rstmt = $conn->prepare("
+            INSERT INTO reviews (paper_id, reviewer_id, score, comment, review_date)
+            VALUES (?, ?, ?, ?, NOW())
+        ");
+        $rstmt->bind_param("iiis", $paper_id, $reviewer_id, $score, $comment);
+
+
+    }
+}
 ?>
 
 <!DOCTYPE html>
