@@ -1,3 +1,4 @@
+alert("Profile.js loaded");
 function editField(field) {
   const el = document.getElementById(field + "Text");
   const old = el.innerText;
@@ -43,4 +44,14 @@ document.getElementById("profilePicInput").addEventListener("change", () => {
 
 /* DARK MODE */
 const btn = document.getElementById("themeToggle");
-btn.onclick = () => document.body.classList.toggle("dark");
+btn.onclick = () => {
+  document.body.classList.toggle("dark");
+  if (!btn) return;
+
+  btn.onclick = () => {
+    document.body.classList.toggle("dark");
+
+    const theme = document.body.classList.contains("dark") ? "dark" : "light";
+    document.cookie = `theme=${theme}; path=/; max-age=31536000`;
+  };
+};

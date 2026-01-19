@@ -2,6 +2,13 @@
 session_start();
 require_once "../db/db.php";
 
+$themeClass = "";
+
+if (isset($_COOKIE['theme']) && $_COOKIE['theme'] === 'dark') {
+    $themeClass = "dark";
+}
+
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit;
@@ -38,7 +45,7 @@ $review    = $conn->query("SELECT COUNT(*) FROM Papers WHERE user_id=$user_id AN
 <link rel="stylesheet" href="../css/Profile.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body>
+<body class="<?= $themeClass ?>">
 
 <div class="profile-container">
 
@@ -95,6 +102,6 @@ $review    = $conn->query("SELECT COUNT(*) FROM Papers WHERE user_id=$user_id AN
 
 </div>
 
-<script src="../js/Profile.js"></script>
+<script src="/Research_Project/Management/Auth/MVC/js/Profile.js"></script>
 </body>
 </html>

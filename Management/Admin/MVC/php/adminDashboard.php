@@ -1,7 +1,10 @@
 <?php
 session_start();
 require_once "../../../Auth/MVC/db/db.php";
-
+$themeClass = "";
+if (isset($_COOKIE['theme']) && $_COOKIE['theme'] === 'dark') {
+    $themeClass = "dark";
+}
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: /Research_Project/Management/Auth/MVC/php/index.php");
@@ -13,6 +16,14 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: /Research_Project/Management/Auth/MVC/php/index.php");
     exit;
 }
+
+
+$stmt = $conn->prepare("SELECT name, profile_pic FROM users WHERE user_id = ?");
+$stmt->bind_param("i", $_SESSION['user_id']);
+$stmt->execute();
+$admin = $stmt->get_result()->fetch_assoc();
+$stmt->close();
+
 ?>
 
 <!DOCTYPE html>
@@ -23,12 +34,21 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     <link rel="stylesheet" href="../css/adminDashboard.css">
 </head>
 
-<body>
+<body class="<?= $themeClass ?>">
 
 <div class="dashboard">
-    <h1>Admin Dashboard</h1>
-    <h3>Recent Submits</h3>
+    <div class="dashboard-header">
+       <h1>Admin Dashboard</h1>
+       <div class="admin-info">
+        <span class="admin-name">
+            <?= htmlspecialchars($admin['name']) ?>
+        </span>
 
+        <img src="../../../Auth/MVC/uploads/profile/<?= htmlspecialchars($admin['profile_pic'] ?: 'default.png') ?>"
+             class="admin-avatar"
+             alt="Profile">
+        </div>
+    </div>
     <div class="cards">
 
         <div class="card menu">
@@ -39,9 +59,11 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                 <a href="../html/deleteJournal.php">Delete Journal</a>
             </div>
         </div>
+        
 
         <a href="allPaper.php" class="card">View Papers</a>
         <a href="addReviewer.php" class="card">Add Reviewers</a>
+         <a href="../../../Auth/MVC/php/Profile.php" class="card">View Profile</a>
         <a href="/Research_Project/Management/Auth/MVC/php/logout.php" class="card logout">Logout</a>
     </div>
 
@@ -62,7 +84,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
         ?>
             <div class="journal">
                 <div class="journal-thumb">
-                    <img src="../images/ijcs.png" alt="Journal">
+                    <img src="../images/journals/<?= htmlspecialchars($journal['image']) ?>" alt="Journal">
                 </div>
 
                 <div class="journal-body">
@@ -73,6 +95,9 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                     <a href="allPaper.php?journal_id=<?= (int)$journal['journal_id'] ?>">
                         View Papers
                     </a>
+                     <a href="updateJournal.php?journal_id=<?= (int)$journal['journal_id'] ?>">
+                     Edit Journal
+                     </a>
                 </div>
             </div>
         <?php
