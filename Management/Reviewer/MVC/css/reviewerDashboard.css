@@ -51,3 +51,14 @@ h1 {
   color: #fff;
 }
 
+.logout:hover {
+  background: #b52a37;
+}
+
+.recentSubmit {
+  grid-column: 2 / 5;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
