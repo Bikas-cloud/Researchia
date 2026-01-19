@@ -25,10 +25,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'author') {
     <title>Author Dashboard</title>
     <link rel="stylesheet" href="../css/authorDashboard.css">
 </head>
-<body>
-
-class="<?= $themeClass ?>"
-
+<body class="<?= $themeClass ?>" >
 <div class="dashboard">
     <h1>Author Dashboard</h1>
     <div class="cards">
