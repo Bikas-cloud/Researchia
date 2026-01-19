@@ -14,7 +14,15 @@ if (!isset($_GET['journal_id'])) {
 
 $journal_id = (int)$_GET['journal_id'];
 
+/* Fetch journal */
+$stmt = $conn->prepare("SELECT * FROM journals WHERE journal_id=?");
+$stmt->bind_param("i", $journal_id);
+$stmt->execute();
+$journal = $stmt->get_result()->fetch_assoc();
 
+if (!$journal) {
+    die("Journal not found");
+}
 ?>
 
 <!DOCTYPE html>
