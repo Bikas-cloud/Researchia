@@ -7,5 +7,12 @@
 </head>
 <body>
     <h2>Review Paper</h2>
+
+    <?php if ($message): ?>
+        <p class="message"><?= htmlspecialchars($message) ?></p>
+    <?php endif; ?>
+
+    
+
 </body>
 </html>
